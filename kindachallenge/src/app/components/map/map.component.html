@@ -1,0 +1,27 @@
+<!-- <div class=mapi>  -->
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="mapTypeId">
+    <agm-marker [latitude]="lat" [longitude]="lng" *ngIf="located">
+        <agm-info-window>
+            My location :-)
+        </agm-info-window>
+    </agm-marker>
+
+    <agm-marker *ngFor="let foodtruck of foodtrucks" [latitude]="foodtruck.location.latitude" [longitude]="foodtruck.location.longitude" [agmFitBounds]="false">
+        <agm-info-window>
+            <h3>{{foodtruck.facilitytype}}</h3>
+            <h4>Address: {{foodtruck.address}}</h4>
+        </agm-info-window>
+    </agm-marker>
+
+</agm-map>
+
+<!-- </div> -->
+
+<br><br><br>
+
+<button (click)="getCurrentPosition()">GET CURRENT POSITION</button>
+<button (click)="showFoodtrucksInfo()">SHOW FOODTRUCKS IN SAN FRANCISCO</button>
+
+<br>
+
+<input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" />
