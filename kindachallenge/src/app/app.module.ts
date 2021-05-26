@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 // Google maps autocomplete
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { environment } from '../environments/environment';
 
 
 
@@ -32,7 +33,7 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     AppRoutingModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: environment.APIKEYG
     }),
     HttpClientModule,
     BrowserAnimationsModule,

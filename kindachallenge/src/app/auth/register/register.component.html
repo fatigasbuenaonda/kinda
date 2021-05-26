@@ -9,6 +9,9 @@
             <p><input type="email" name="email" placeholder="Email" ngModel required></p>
             <p><input type="password" name="password" placeholder="Password" ngModel required></p>
             <p><input type="submit" value="Register"></p>
+            <div *ngIf=regerr class="alert alert-danger" role="alert">
+                {{ regerrMes }}
+            </div>
         </form>
     </div>
 </div>

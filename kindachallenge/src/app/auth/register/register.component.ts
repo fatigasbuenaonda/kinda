@@ -11,6 +11,9 @@ import { UserI } from '../../models/user';
 })
 export class RegisterComponent implements OnInit {
 
+  regerr = false;
+  regerrMes = '';
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -18,9 +21,11 @@ export class RegisterComponent implements OnInit {
 
   onRegister(form: { value: UserI; }): void{
     console.log('Register', form.value);
-    this.authService.register(form.value).subscribe(res => {
-      this.router.navigateByUrl('/auth/login');
-    });
+    this.authService.register(form.value).subscribe(
+      res => {this.router.navigateByUrl('/auth/login'); },
+      err => {console.log('HTTP Error', err.error);
+              this.regerr = true;
+              this.regerrMes = err.error; });
   }
 
 }

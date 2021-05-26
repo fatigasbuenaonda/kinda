@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
-import { FoodtrucksService } from '../../foodtrucks.service';
+import { FoodtrucksService } from '../../services/foodtrucks.service';
 
 @Component({
   selector: 'app-map',
@@ -21,7 +22,7 @@ export class MapComponent implements OnInit {
   address1: string;
   options: any;
 
-  constructor(private foodtrucksService: FoodtrucksService) {
+  constructor(private foodtrucksService: FoodtrucksService, private router: Router) {
     this.lat = 37.75;
     this.lng = -122.48;
     this.zoom = 9;
@@ -57,7 +58,7 @@ export class MapComponent implements OnInit {
     this.showfood = true;
   }
 
-  getCurrentPosition() {
+  public getCurrentPosition() {
     navigator.geolocation.getCurrentPosition(position => {
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
@@ -67,17 +68,21 @@ export class MapComponent implements OnInit {
   }
 
 
-  showFoodtrucksInfo() {
+  public showFoodtrucksInfo() {
+    this.lat = 37.75;
+    this.lng = -122.48;
+    this.zoom = 10;
+
     this.foodtrucksService.getAll()
     .then(foodtrucks => this.foodtrucks = foodtrucks)
     .catch(error => console.log(error));
 
     this.showfood = true;
-    this.lat = 37.75;
-    this.lng = -122.48;
-    this.zoom = 10;
+  }
 
-
+  public onLogout() {
+    localStorage.clear();
+    this.router.navigateByUrl('/auth/login');
   }
 
 }

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BACKLINK: 'https://kinda-backend-challenge.herokuapp.com', //'http://localhost:3000',
+  APIKEYG: 'AIzaSyDfHMEpuwFMWvZIh2JzK3pJtIi5VTjs8_8',
+  FOODTRUCKLINK: 'https://data.sfgov.org/resource/rqzj-sfat.json'
 };
 
 /*

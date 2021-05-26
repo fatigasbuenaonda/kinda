@@ -1,27 +1,32 @@
-<!-- <div class=mapi>  -->
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="mapTypeId">
-    <agm-marker [latitude]="lat" [longitude]="lng" *ngIf="located">
-        <agm-info-window>
-            My location :-)
-        </agm-info-window>
-    </agm-marker>
+<div class="todo">
+    <div class="center">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="mapTypeId">
+            <agm-marker [latitude]="lat" [longitude]="lng" *ngIf="located">
+                <agm-info-window>
+                    My location :-)
+                </agm-info-window>
+            </agm-marker>
 
-    <agm-marker *ngFor="let foodtruck of foodtrucks" [latitude]="foodtruck.location.latitude" [longitude]="foodtruck.location.longitude" [agmFitBounds]="false">
-        <agm-info-window>
-            <h3>{{foodtruck.facilitytype}}</h3>
-            <h4>Address: {{foodtruck.address}}</h4>
-        </agm-info-window>
-    </agm-marker>
+            <agm-marker *ngFor="let foodtruck of foodtrucks" [latitude]="foodtruck.location.latitude" [longitude]="foodtruck.location.longitude" [agmFitBounds]="false">
+                <agm-info-window>
+                    <h3>{{foodtruck.facilitytype}}</h3>
+                    <h4>Address: {{foodtruck.address}}</h4>
+                </agm-info-window>
+            </agm-marker>
+        </agm-map>
+    </div>
 
-</agm-map>
+    <div class="buttons">
+        <button type="button" class="btn btn-info" (click)="getCurrentPosition()">Get current position</button>
+        <button type="button" class="btn btn-success" (click)="showFoodtrucksInfo()">Show foodtrucks in San Francisco</button>
+    </div>
 
-<!-- </div> -->
+    <div class="searcher">
+        <input class="input1" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" />
+    </div>
 
-<br><br><br>
+    <div class="buttonlogout">
+        <button type="button" class="btn btn-danger" (click)="onLogout()">LOG OUT</button>
+    </div>
 
-<button (click)="getCurrentPosition()">GET CURRENT POSITION</button>
-<button (click)="showFoodtrucksInfo()">SHOW FOODTRUCKS IN SAN FRANCISCO</button>
-
-<br>
-
-<input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" />
+</div>

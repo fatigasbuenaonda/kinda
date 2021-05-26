@@ -4,11 +4,12 @@ import { UserI } from '../models/user';
 import { JwtResponseI } from '../models/jwt-response';
 import { tap } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 
 export class AuthService {
-  AUTH_SERVER = 'http://localhost:3000';
+  AUTH_SERVER = environment.BACKLINK;
   authSubject = new BehaviorSubject(false);
   private token!: string;
   constructor(private httpClient: HttpClient) {

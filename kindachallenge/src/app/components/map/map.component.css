@@ -1,11 +1,42 @@
 agm-map {
-    width: 900px;
-    height: 700px;
+    width: 100%;
+    height: 500px;
 }
 
-div.mapi {
-    height: 10em;
+.title {
     display: flex;
-    align-items: center;
     justify-content: center;
+}
+
+.buttons {
+    display: contents;
+    position: absolute;
+}
+
+.buttonlogout {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+
+.searcher {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.input1 {
+    width: 300px;
+    padding: 10px;
+}
+
+.todo {
+    width: 100%;
 }

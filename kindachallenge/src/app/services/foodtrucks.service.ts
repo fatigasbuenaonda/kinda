@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class FoodtrucksService {
   baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'https://data.sfgov.org/resource/rqzj-sfat.json';
+    this.baseUrl = environment.FOODTRUCKLINK;
    }
 
    // Acá puedo poner hacer un modelo para lo que viene en el json
