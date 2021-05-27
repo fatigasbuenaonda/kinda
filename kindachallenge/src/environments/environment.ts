@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   BACKLINK: 'https://kinda-backend-challenge.herokuapp.com', //'http://localhost:3000',
-  APIKEYG: 'AIzaSyDfHMEpuwFMWvZIh2JzK3pJtIi5VTjs8_8',
+  APIKEYG: '',
   FOODTRUCKLINK: 'https://data.sfgov.org/resource/rqzj-sfat.json'
 };
 
